@@ -34,15 +34,22 @@ function removeLoadingState() {
     buttonContainer.disabled = false;
 }
 
-buttonContainer.addEventListener("click", async () => {
-    try {
-        setLoadingState();
-        const adviceObj = await getAdvice();
+if (!buttonContainer) return;
 
-        renderAdvice(adviceObj.slip)
-    } catch(error) {
-        renderError(error);
-    } finally {
-        removeLoadingState();
-    }
-})
+if (!titleText || !adviceText) {
+        console.error("Missing required DOM elements");
+        return;
+} else {
+    buttonContainer.addEventListener("click", async () => {
+        try {
+            setLoadingState();
+            const adviceObj = await getAdvice();
+
+            renderAdvice(adviceObj.slip)
+        } catch(error) {
+            renderError(error);
+        } finally {
+            removeLoadingState();
+        }
+    })
+}
