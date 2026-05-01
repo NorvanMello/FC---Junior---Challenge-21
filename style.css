@@ -19,6 +19,9 @@
   --color-green-300: #53ffaa;
   --color-green-200: #a6ffd6;
 
+  /* Violet */
+  --color-violet-500: #7a33cc;
+
   --bg-primary-color: var(--color-blue-950);
   --bg-secondary-color: var(--color-blue-900);
 
@@ -149,7 +152,7 @@ body {
 }
 
 .button-container:focus-visible {
-   outline: 3px solid var(--color-green-300);
+   outline: 3px solid var(--color-violet-500);
    outline-offset: 4px;
 }
 
