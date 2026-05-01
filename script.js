@@ -34,22 +34,20 @@ function removeLoadingState() {
     buttonContainer.disabled = false;
 }
 
-if (!buttonContainer) return;
-
-if (!titleText || !adviceText) {
-        console.error("Missing required DOM elements");
-        return;
+if (!buttonContainer) {
+    console.error("Missing button container");
+} else if (!titleText || !adviceText) {
+    console.error("Missing required DOM elements");
 } else {
     buttonContainer.addEventListener("click", async () => {
         try {
             setLoadingState();
             const adviceObj = await getAdvice();
-
-            renderAdvice(adviceObj.slip)
+            renderAdvice(adviceObj.slip);
         } catch(error) {
             renderError(error);
         } finally {
             removeLoadingState();
         }
-    })
+    });
 }
