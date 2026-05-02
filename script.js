@@ -27,11 +27,13 @@ function renderError(error) {
 
 function setLoadingState() {
     buttonContainer.disabled = true;
+    adviceText.style.color = "#a6ffd6";
     adviceText.textContent = "Loading advice...";
 }
 
 function removeLoadingState() {
     buttonContainer.disabled = false;
+    adviceText.style.color = "";
 }
 
 if (!buttonContainer) {
